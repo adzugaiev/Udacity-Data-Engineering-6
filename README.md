@@ -11,6 +11,7 @@ In the data engineering capstone project I combine what I've learned throughout 
 * [Data Exploration](#data-exploration)
 * [Data Model](#data-model)
     - [Data Dictionary](#data-dictionary)
+    - [Complete Project Write Up](complete-project-write-up)
 * [Files in the Project](#files-in-the-project)
 * [Running the Project](#running-the-project)
 * [What I Have Learned](#what-i-have-learned)
@@ -41,13 +42,25 @@ The fact table, `i94data` is partitioned by year and month. The `date` dimension
 
 ### Data Dictionary
 
-Data dictionary is in the separate file `schema/data_dictionary.md`.
+Data dictionary is in the separate file `data_dictionary.md`.
+
+### Complete Project Write Up
+* The rationale for the choice of tools and technologies for the project.
+    - I'm using Spark since it is both scalable for the big data and flexible for the data exploration.
+* Propose how often the data should be updated and why.
+    - The immigration data source is updated every month, therefore our DWH needs to be updated monthly.
+* Write a description of how you would approach the problem differently under the following scenarios:
+    - _The data was increased by 100x._ Use standalone Spark cluster on AWS EMR, save data to S3, scale the cluster appropriately and watch your AWS bill increase.
+    - _The data populates a dashboard that must be updated on a daily basis by 7am every day._ Implement and schedule the refresh jobs with Apache Airflow.
+    - _The database needed to be accessed by 100+ people._ Create Amazon Redshift cluster, understand usage patterns and scale the cluster appropriately. Import the output data produced by ETL to Redshift.
 
 ## Files in the Project
 
 - `explore_data.ipynb` explores all project datasets, performs data wrangling, transformations and investigates quality issues.
-- `etl_test.ipynb` tests all ETL queries following the procedure step by step.
+- `etl_test.ipynb` tests all ETL queries and quality checks following the procedure step by step.
 - `etl.py` reads and processes files from `i94_data` and `dimension_data` and loads them into DWH tables in `output_data`.
+- `helper.py` defines reusable functions, and is imported into the files above.
+- `data_dictionary.md` contains dictionary for the data model.
 - `README.md` provides the project description you are now reading.
 
 ## Running the Project
