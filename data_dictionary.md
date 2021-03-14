@@ -31,7 +31,8 @@ Legend first column (K):
 
 ### Fact: Immigration
 
-||K|Attribute|Type|Description||
+|K|Attribute|Type|Description|
+|---|---|---|---|
 |**⚷**|i94_id|integer|Original i94 record id|
 | |arrive_airline|string|Arrival airline|
 | |arrive_by|string|Arrival mode (Air, Land, Sea, ...)|
