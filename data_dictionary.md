@@ -62,32 +62,51 @@ Table `date`
 |K|Attribute|Type|Description|
 |:---:|:---|:---:|:---|
 |**⚷**|date|date|Date, with no time|
-|&#126;|year|int|Year from date|
-|&#126;|month|int|Month number from date|
-|●|week|int|Week number in year|
-|●|day|int|Day from date|
-|●|weekday|int|Weekday number, 1 is Sunday|
+|&#126;|year|integer|Year from date|
+|&#126;|month|integer|Month number from date|
+|●|week|integer|Week number in year|
+|●|day|integer|Day from date|
+|●|weekday|integer|Weekday number, 1 is Sunday|
 
 ### Dimension: Countries
 Table `countries`
 |K|Attribute|Type|Description|
 |:---:|:---|:---:|:---|
 |**⚷**|id|integer|Original i94 country id|
+|●|name|string|Country name|
 
 ### Dimension: States
 Table `states`
 |K|Attribute|Type|Description|
 |:---:|:---|:---:|:---|
 |**⚷**|state_code|integer|Original state code|
+|●|state|string|State name|
+|●|pop_male|ineger|Qunatity of male population|
+|●|pop_female|ineger|Qunatity of female population|
+|●|pop_total|ineger|Total qunatity of population|
+|●|pop_veteran|ineger|Qunatity of veteran population|
+|●|pop_foreign_born|ineger|Qunatity of foreign born population|
 
 ### Dimension: State Race Counts
 Table `state-race-counts`
 |K|Attribute|Type|Description|
 |:---:|:---|:---:|:---|
-|**⚷**|state_code|integer|Original state code|
+|**⚷**|state_code|integer|Original state code, ref. [state](#dimension-states)|
+|●|state|string|State name|
+|**⚷**|race|string|Race name|
+|●|race_count|string|Qunatity of race population in state|
 
 ### Dimension: Airports
 Table `airports`
 |K|Attribute|Type|Description|
 |:---:|:---|:---:|:---|
 |**⚷**|id|integer|Original airport id|
+|●|name|string|Airport name|
+| |type|string|Airport type|
+| |elevation_ft|integer|Elevation above the sea level, feet|
+| |city|string|Closest city|
+| |gps_code|string|GPS code|
+| |local_code|string|Local code, ref. [immigration](#fact-immigration) by `arrive_port`|
+| |state_code|string|State code, ref. [state](#dimension-states)|
+| |lat|float|Latitude|
+| |long|float|Longitude|
