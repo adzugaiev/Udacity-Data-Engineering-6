@@ -6,13 +6,13 @@ This file contains dictionary for the data model. For the full project descripti
 ## Table of Contents
 
 * [Data Model](#data-model)
-* [Data Dictionary](#dict)
-    - [Fact: Immigration](#fact)
-    - [Dimension: Date](#date)
-    - [Dimension: Countries](#countries)
-    - [Dimension: States](#states)
-    - [Dimension: State Race Counts](#race)
-    - [Dimension: Airports](#airports)
+* [Data Dictionary](#data-dictionary)
+    - [Fact: Immigration](#fact-immigration)
+    - [Dimension: Date](#dimension-date)
+    - [Dimension: Countries](#dimension-countries)
+    - [Dimension: States](#dimension-states)
+    - [Dimension: State Race Counts](#dimension-state-race-counts)
+    - [Dimension: Airports](#dimension-airports)
 
 ## Data Model
 
@@ -22,26 +22,26 @@ Using the project datasets, I will create a star schema optimized for queries on
 
 The fact table, `i94data` is partitioned by year and month. The `date` dimension table is following this partitioning, however since it's grain is one day it can be as well not partitioned.
 
-## Data Dictionary {#dict}
+## Data Dictionary
 
 Legend first column (K):
-* ⚷ primary key
-* ~ distribution key
+* **⚷** primary key
+* &#126; distribution key
 * ● not null
 
-### Fact: Immigration {#fact}
+### Fact: Immigration
 
-|K|Attribute|Type|Description|
-|⚷|i94_id|integer|Original i94 record id|
+||K|Attribute|Type|Description||
+|**⚷**|i94_id|integer|Original i94 record id|
 | |arrive_airline|string|Arrival airline|
 | |arrive_by|string|Arrival mode (Air, Land, Sea, ...)|
 |●|arrive_date|date|Arrival [date](#date), ref. by `date`|
 | |arrive_flag|string|Arrival flag|
 | |arrive_flight|string|Arrival flight number|
-|~|arrive_month|integer|Arrival month number|
+|&#126;|arrive_month|integer|Arrival month number|
 | |arrive_port|string|Port (incl. [Air](#airports) of arrival, ref. by `local_code`)|
 | |arrive_to_state|string|Destination [state](#states) upon arrival, ref. by `state_code`|
-|~|arrive_year|integer|Arrival year|
+|&#126;|arrive_year|integer|Arrival year|
 | |depart_date|date|Departure [date](#date), ref. by `date`|
 | |depart_flag|string|Departure flag|
 | |pers_age|integer|Person's age|
@@ -53,15 +53,15 @@ Legend first column (K):
 | |visa_issued|string|Visa issuing authority|
 | |visa_type|string|Visa admission class|
 | |admission_number|double|Admision number|
-| |allow_stay_until|string|Date until stay in U.S. is allowed|
+| |allow_stay_until|string|Date until stay in the U.S. is allowed|
 | |match_flag|string|Whether the arrival & departure events are matching|
 
-### Dimension: Date {#date}
+### Dimension: Date
 
-### Dimension: Countries {#countries}
+### Dimension: Countries
 
-### Dimension: States {#states}
+### Dimension: States
 
-### Dimension: State Race Counts {#race}
+### Dimension: State Race Counts
 
-### Dimension: Airports {#airports}
+### Dimension: Airports
