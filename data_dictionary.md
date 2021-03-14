@@ -53,7 +53,7 @@ Table `i94data`
 | |visa|string|Visa type|
 | |visa_issued|string|Visa issuing authority|
 | |visa_type|string|Visa admission class|
-| |admission_number|double|Admision number|
+| |admission_number|double|Admission number|
 | |allow_stay_until|string|Date until stay in the U.S. is allowed|
 | |match_flag|string|Whether the arrival & departure events are matching|
 
@@ -81,11 +81,11 @@ Table `states`
 |:---:|:---|:---:|:---|
 |**⚷**|state_code|integer|Original state code|
 |●|state|string|State name|
-|●|pop_male|ineger|Qunatity of male population|
-|●|pop_female|ineger|Qunatity of female population|
-|●|pop_total|ineger|Total qunatity of population|
-|●|pop_veteran|ineger|Qunatity of veteran population|
-|●|pop_foreign_born|ineger|Qunatity of foreign born population|
+|●|pop_male|ineger|Quantity of male population|
+|●|pop_female|ineger|Quantity of female population|
+|●|pop_total|ineger|Total quantity of population|
+|●|pop_veteran|ineger|Quantity of veteran population|
+|●|pop_foreign_born|ineger|Quantity of foreign born population|
 
 ### Dimension: State Race Counts
 Table `state-race-counts`
@@ -94,7 +94,7 @@ Table `state-race-counts`
 |**⚷**|state_code|integer|Original state code, ref. [state](#dimension-states)|
 |●|state|string|State name|
 |**⚷**|race|string|Race name|
-|●|race_count|string|Qunatity of race population in state|
+|●|race_count|string|Quantity of race population in state|
 
 ### Dimension: Airports
 Table `airports`
