@@ -1,0 +1,67 @@
+## Udacity - Data Engineering - 6
+# Capstone Project
+
+This file contains dictionary for the data model. For the full project description, see `README.md`.
+
+## Table of Contents
+
+* [Data Model](#data-model)
+* [Data Dictionary](#dict)
+    - [Fact: Immigration](#fact)
+    - [Dimension: Date](#date)
+    - [Dimension: Countries](#countries)
+    - [Dimension: States](#states)
+    - [Dimension: State Race Counts](#race)
+    - [Dimension: Airports](#airports)
+
+## Data Model
+
+Using the project datasets, I will create a star schema optimized for queries on immigration data analysis. This includes the following tables.
+
+![Schema ERD](../main/schema/schema.png?raw=true)
+
+The fact table, `i94data` is partitioned by year and month. The `date` dimension table is following this partitioning, however since it's grain is one day it can be as well not partitioned.
+
+## Data Dictionary {#dict}
+
+Legend first column (K):
+* ⚷ primary key
+* ~ distribution key
+* ● not null
+
+### Fact: Immigration {#fact}
+
+|K|Attribute|Type|Description|
+|⚷|i94_id|integer|Original i94 record id|
+| |arrive_airline|string|Arrival airline|
+| |arrive_by|string|Arrival mode (Air, Land, Sea, ...)|
+|●|arrive_date|date|Arrival [date](#date), ref. by `date`|
+| |arrive_flag|string|Arrival flag|
+| |arrive_flight|string|Arrival flight number|
+|~|arrive_month|integer|Arrival month number|
+| |arrive_port|string|Port (incl. [Air](#airports) of arrival, ref. by `local_code`)|
+| |arrive_to_state|string|Destination [state](#states) upon arrival, ref. by `state_code`|
+|~|arrive_year|integer|Arrival year|
+| |depart_date|date|Departure [date](#date), ref. by `date`|
+| |depart_flag|string|Departure flag|
+| |pers_age|integer|Person's age|
+| |pers_birth_year|integer|Person's year of birth|
+| |pers_country_birth|integer|Person's [country](#countries) of birth, ref. by `id`|
+| |pers_country_resid|integer|Person's [country](#countries) of residence, ref. by `id`|
+| |pers_gender|string|Person's gender (F/M)|
+| |visa|string|Visa type|
+| |visa_issued|string|Visa issuing authority|
+| |visa_type|string|Visa admission class|
+| |admission_number|double|Admision number|
+| |allow_stay_until|string|Date until stay in U.S. is allowed|
+| |match_flag|string|Whether the arrival & departure events are matching|
+
+### Dimension: Date {#date}
+
+### Dimension: Countries {#countries}
+
+### Dimension: States {#states}
+
+### Dimension: State Race Counts {#race}
+
+### Dimension: Airports {#airports}
