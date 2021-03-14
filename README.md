@@ -11,7 +11,7 @@ In the data engineering capstone project I combine what I've learned throughout 
 * [Data Exploration](#data-exploration)
 * [Data Model](#data-model)
     - [Data Dictionary](#data-dictionary)
-    - [Complete Project Write Up](complete-project-write-up)
+    - [Complete Project Write Up](#complete-project-write-up)
 * [Files in the Project](#files-in-the-project)
 * [Running the Project](#running-the-project)
 * [What I Have Learned](#what-i-have-learned)
@@ -23,9 +23,9 @@ I will investigate four datasets being the US immigration data, US city demograp
 
 ### Project Datasets
 
-* **I94 Immigration Data**: This data comes from the [US National Tourism and Trade Office](https://travel.trade.gov/research/reports/i94/historical/2016.html). A data dictionary is included in the workspace. I'm using this dataset to populate the fact table and dimensions `countries` and `date`.
-* **U.S. City Demographic Data**: This data comes [from OpenSoft](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/). I'm aggregating it up to the state level to populate dimensions `states` and `state_race_counts`.
-* **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes [from here](https://datahub.io/core/airport-codes#data). I'm using this dataset to populate dimension `airports`.
+* **I94 Immigration Data**: This data comes from the [US National Tourism and Trade Office](https://travel.trade.gov/research/reports/i94/historical/2016.html). A data dictionary is included in the workspace. I'm using this dataset to populate the fact table and dimensions `countries` and `date`
+* **U.S. City Demographic Data**: This data comes [from OpenSoft](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/). I'm aggregating it up to the state level to populate dimensions `states` and `state_race_counts`
+* **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes [from here](https://datahub.io/core/airport-codes#data). I'm using this dataset to populate dimension `airports`
 * **World Temperature Data**: This dataset came [from Kaggle](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data). After exploring the state-level data I've decided to skip it as not aligned in time with the immigration fact data.
 
 ## Data Exploration
@@ -42,7 +42,7 @@ The fact table, `i94data` is partitioned by year and month. The `date` dimension
 
 ### Data Dictionary
 
-Data dictionary is in the separate file `data_dictionary.md`.
+Data dictionary is in the separate file `data_dictionary.md`
 
 ### Complete Project Write Up
 * The rationale for the choice of tools and technologies for the project.
