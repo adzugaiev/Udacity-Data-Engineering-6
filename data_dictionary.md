@@ -24,12 +24,9 @@ The fact table, `i94data` is partitioned by year and month. The `date` dimension
 
 ## Data Dictionary
 
-Legend first column (K):
-
-**⚷** primary key
-
-&#126; distribution key
-
+Legend first column (K):  
+**⚷** primary key  
+&#126; distribution key  
 ● not null
 
 ### Fact: Immigration
