@@ -19,7 +19,8 @@ In the data engineering capstone project I combine what I've learned throughout 
 
 ## Project Scope
 
-I will investigate four datasets being the US immigration data, US city demographics, weather information and airport data. The resulting dataset can be used for analysis of trends in travel and immigration to the US. I'm using local Spark instance to process the data in the local folders. The project code can be upgraded to work on a standalone Amazon EMR Spark cluster with data on Amazon S3. I have this experience from [Project 4](https://github.com/adzugaiev/Udacity-Data-Engineering-4) so I focused more on the data investigation rather than building the production level ETL pipeline.
+I will investigate four datasets being the US immigration data, US city demographics, weather information and airport data. The resulting dataset can be used for analysis of trends in travel and immigration to the US. For example, the dataset can help data analysts in travel and hospitality companies to evaluate seasonal, regional, and demographical factors in travel to the US.  
+I'm using local Spark instance to process the data in the local folders. The project code can be upgraded to work on a standalone Amazon EMR Spark cluster with data on Amazon S3. I have this experience from [Project 4](https://github.com/adzugaiev/Udacity-Data-Engineering-4) so I focused more on the data investigation rather than building the production level ETL pipeline.
 
 ### Project Datasets
 
@@ -46,7 +47,11 @@ Data dictionary is in the separate file `data_dictionary.md`
 
 ### Complete Project Write Up
 * The rationale for the choice of tools and technologies for the project.
-    - I'm using Spark since it is both scalable for the big data and flexible for the data exploration.
+    - At project start, I needed to explore four different datasets available in multiple formats and sizes, up to millions of records;
+    - I therefore used Apache Spark in combination with Jupyter Notebook to accommodate with multiple data formats, record volumes, and to document my exploration steps and their outcomes;
+    - I was missing some visualizations for my findings, so I added reusable data plotting functions based on Seaborn & Matplotlib for some of my repeating Spark queries, in `hepler.py`;
+    - I continued using Spark for the ETL pipeline to reuse many of my exploration-stage code, and I tested the ETL steps in another Jupyter Notebook to check their results interactively and tune them where necessary;
+    - Finally, Spark helped me to save the resulting dataset into binary parquet files that can be shared and imported to e.g. Amazon Redshift for the dataset users.
 * Propose how often the data should be updated and why.
     - The immigration data source is updated every month, therefore our DWH needs to be updated monthly.
 * Write a description of how you would approach the problem differently under the following scenarios:
