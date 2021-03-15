@@ -19,7 +19,8 @@ In the data engineering capstone project I combine what I've learned throughout 
 
 ## Project Scope
 
-I will investigate four datasets being the US immigration data, US city demographics, weather information and airport data. The resulting dataset can be used for analysis of trends in travel and immigration to the US. For example, the dataset can help data analysts in travel and hospitality companies to evaluate seasonal, regional, and demographical factors in travel to the US.  
+I will investigate four datasets being the US immigration data, US city demographics, weather information and airport data. The resulting dataset can be used for analysis of trends in travel and immigration to the US. For example, the dataset can help data analysts in travel and hospitality companies to evaluate seasonal, regional, and demographical factors in travel to the US.
+
 I'm using local Spark instance to process the data in the local folders. The project code can be upgraded to work on a standalone Amazon EMR Spark cluster with data on Amazon S3. I have this experience from [Project 4](https://github.com/adzugaiev/Udacity-Data-Engineering-4) so I focused more on the data investigation rather than building the production level ETL pipeline.
 
 ### Project Datasets
